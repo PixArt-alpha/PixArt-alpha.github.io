@@ -134,5 +134,24 @@ body {
   font-size: smaller;
 }
 
+section.banner {
+    background-image: url(../images/overlay.png), url(../images/banner.png);
+    color: #aaa;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+.publication-title {
+    color: #fff;
+}
+
+.card-image.js-modal-trigger {
+    cursor: pointer;
+}
+.results-carousel .card {
+    margin: 20px;
+    overflow: hidden;
+}
 
 

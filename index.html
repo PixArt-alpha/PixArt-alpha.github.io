@@ -32,7 +32,6 @@
 
     <link rel="stylesheet" href="static/css/bulma.min.css">
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="static/css/index.css">
@@ -41,70 +40,7 @@
     <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
     <script defer src="static/js/fontawesome.all.min.js"></script>
     <script src="static/js/bulma-carousel.min.js"></script>
-    <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Functions to open and close a modal
-            function openModal($el) {
-                $el.classList.add('is-active');
-            }
-
-            function closeModal($el) {
-                $el.classList.remove('is-active');
-            }
-
-            function closeAllModals() {
-                (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-                    closeModal($modal);
-                });
-            }
-
-            // Add a click event on buttons to open a specific modal
-            (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-                const modal = $trigger.dataset.target;
-                const $target = document.getElementById(modal);
-
-                $trigger.addEventListener('click', () => {
-                    openModal($target);
-                });
-            });
-
-            // Add a click event on various child elements to close the parent modal
-            (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-                const $target = $close.closest('.modal');
-
-                $close.addEventListener('click', () => {
-                    closeModal($target);
-                });
-            });
-
-            // Add a keyboard event to close all modals
-            document.addEventListener('keydown', (event) => {
-                if (event.code === 'Escape') {
-                    closeAllModals();
-                }
-            });
-        });
-
-    </script>
-    <style>
-        section.banner {
-            background-image: url(static/images/overlay.png), url(static/images/banner.png);
-            color: #aaa;
-            background-position: center top;
-            background-size: cover;
-            background-attachment: scroll;
-        }
-
-        .publication-title {
-            color: #fff;
-        }
-
-        .card-image.js-modal-trigger {
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
@@ -219,38 +155,29 @@
         <div class="hero-body">
             <div class="container">
                 <div id="results-carousel" class="carousel results-carousel">
-                    <div class="item">
-                        <!-- Your image here -->
-                        <center><img src="static/images/carousel1.png"
-                                alt="A small cactus with a happy face in the Sahara desert" /></center>
-                        <h2 class="subtitle has-text-centered">
-                            A small cactus with a happy face in the Sahara desert.
-                        </h2>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="static/images/carousel1.png" alt="carousel1" />
+                        </div>
+                        <div class="card-content has-text-centered">A small cactus with a happy face in the Sahara desert.</div>
                     </div>
-                    <div class="item">
-                        <!-- Your image here -->
-                        <center><img src="static/images/carousel2.png"
-                                alt="A alpaca made of colorful building blocks, cyberpunk" /></center>
-                        <h2 class="subtitle has-text-centered">
-                            A alpaca made of colorful building blocks, cyberpunk.
-                        </h2>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="static/images/carousel2.png" alt="carousel2" />
+                        </div>
+                        <div class="card-content has-text-centered">A alpaca made of colorful building blocks, cyberpunk.</div>
                     </div>
-                    <div class="item">
-                        <!-- Your image here -->
-                        <center><img src="static/images/carousel3.png"
-                                alt="Bright scene, aerial view, ancient city, fantasy, gorgeous light, mirror reflection, high detail, wide angle lens" />
-                        </center>
-                        <h2 class="subtitle has-text-centered">
-                            Real beautiful woman.
-                        </h2>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="static/images/carousel3.png" alt="carousel3" />
+                        </div>
+                        <div class="card-content has-text-centered">Real beautiful woman.</div>
                     </div>
-                    <div class="item">
-                        <!-- Your image here -->
-                        <center><img src="static/images/carousel4.png"
-                                alt="Luffy from ONEPIECE, handsome face, fantasy" /></center>
-                        <h2 class="subtitle has-text-centered">
-                            Luffy from ONEPIECE, handsome face, fantasy.
-                        </h2>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="static/images/carousel4.png" alt="carousel4" />
+                        </div>
+                        <div class="card-content has-text-centered">Luffy from ONEPIECE, handsome face, fantasy.</div>
                     </div>
                 </div>
             </div>
@@ -333,7 +260,7 @@
                     <div class="column">
                         <div id="modal-sample1" class="modal">
                             <div class="modal-background"></div>
-                            <div class="modal-content">
+                            <div class="modal-card">
                                 <img src="static/images/samples/1.png" />
                             </div>
                             <button class="modal-close is-large" aria-label="close"></button>
