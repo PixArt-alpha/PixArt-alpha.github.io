@@ -43,6 +43,51 @@
     <script src="static/js/bulma-carousel.min.js"></script>
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Functions to open and close a modal
+            function openModal($el) {
+                $el.classList.add('is-active');
+            }
+
+            function closeModal($el) {
+                $el.classList.remove('is-active');
+            }
+
+            function closeAllModals() {
+                (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                    closeModal($modal);
+                });
+            }
+
+            // Add a click event on buttons to open a specific modal
+            (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+                const modal = $trigger.dataset.target;
+                const $target = document.getElementById(modal);
+
+                $trigger.addEventListener('click', () => {
+                    openModal($target);
+                });
+            });
+
+            // Add a click event on various child elements to close the parent modal
+            (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+                const $target = $close.closest('.modal');
+
+                $close.addEventListener('click', () => {
+                    closeModal($target);
+                });
+            });
+
+            // Add a keyboard event to close all modals
+            document.addEventListener('keydown', (event) => {
+                if (event.code === 'Escape') {
+                    closeAllModals();
+                }
+            });
+        });
+
+    </script>
     <style>
         section.banner {
             background-image: url(static/images/overlay.png), url(static/images/banner.png);
@@ -54,6 +99,10 @@
 
         .publication-title {
             color: #fff;
+        }
+
+        .card-image.js-modal-trigger {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -282,8 +331,15 @@
                 <h2 class="title is-3">More Samples</h2>
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
+                        <div id="modal-sample1" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/1.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample1">
                                 <img src="static/images/samples/1.png" alt="sample1" />
                             </div>
                             <div class="card-content">8k uhd A man looks up at the starry sky, lonely and ethereal,
@@ -292,8 +348,15 @@
                         </div>
                     </div>
                     <div class="column">
+                        <div id="modal-sample2" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/2.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample2">
                                 <img src="static/images/samples/2.png" alt="sample2">
                             </div>
                             <div class="card-content">A baby painter trying to draw very simple picture, white
@@ -303,16 +366,30 @@
                 </div>
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
+                        <div id="modal-sample3" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/3.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample3">
                                 <img src="static/images/samples/3.png" alt="sample3" />
                             </div>
                             <div class="card-content">A dog that has been meditating all the time</div>
                         </div>
                     </div>
                     <div class="column">
+                        <div id="modal-sample4" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/4.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample4">
                                 <img src="static/images/samples/4.png" alt="sample4">
                             </div>
                             <div class="card-content">A snowy mountain</div>
@@ -321,8 +398,15 @@
                 </div>
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
+                        <div id="modal-sample5" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/5.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample5">
                                 <img src="static/images/samples/5.png" alt="sample5" />
                             </div>
                             <div class="card-content">A worker that looks like a mixture of cow and horse is working
@@ -330,8 +414,15 @@
                         </div>
                     </div>
                     <div class="column">
+                        <div id="modal-sample6" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/6.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample6">
                                 <img src="static/images/samples/6.png" alt="sample6">
                             </div>
                             <div class="card-content">Half human, half robot, repaired human</div>
@@ -340,16 +431,30 @@
                 </div>
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
+                        <div id="modal-sample7" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/7.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample7">
                                 <img src="static/images/samples/7.png" alt="sample7" />
                             </div>
                             <div class="card-content">knolling of a drawing tools for painter</div>
                         </div>
                     </div>
                     <div class="column">
+                        <div id="modal-sample8" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/8.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample8">
                                 <img src="static/images/samples/8.png" alt="sample8">
                             </div>
                             <div class="card-content">Real beautiful woman, Chinese</div>
@@ -358,16 +463,30 @@
                 </div>
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
+                        <div id="modal-sample9" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/9.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample9">
                                 <img src="static/images/samples/9.png" alt="sample9" />
                             </div>
                             <div class="card-content">Chinese painting of grapes</div>
                         </div>
                     </div>
                     <div class="column">
+                        <div id="modal-sample10" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/10.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample10">
                                 <img src="static/images/samples/10.png" alt="sample10">
                             </div>
                             <div class="card-content">Stars, water, brilliantly, gorgeous large scale scene</div>
@@ -376,8 +495,15 @@
                 </div>
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
+                        <div id="modal-sample11" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/11.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample11">
                                 <img src="static/images/samples/11.png" alt="sample11" />
                             </div>
                             <div class="card-content">
@@ -386,9 +512,16 @@
                         </div>
                     </div>
                     <div class="column">
+                        <div id="modal-sample12" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <img src="static/images/samples/12.png" />
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
                         <div class="card">
-                            <div class="card-image">
-                                <img src="static/images/samples/12.png" alt="Placeholder image">
+                            <div class="card-image js-modal-trigger" data-target="modal-sample12">
+                                <img src="static/images/samples/12.png" alt="sample12">
                             </div>
                             <div class="card-content">
                                 Pirate ship trapped in a cosmic maelstrom nebula
