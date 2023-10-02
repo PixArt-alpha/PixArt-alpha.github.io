@@ -8,7 +8,7 @@ $(document).ready(function () {
         slidesToScroll: 1,
         slidesToShow: 2,
         infinite: true,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 5000,
         pagination: false,
     }
