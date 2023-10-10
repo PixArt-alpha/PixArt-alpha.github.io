@@ -154,4 +154,6 @@ section.banner {
     overflow: hidden;
 }
 
-
+.column .card {
+    height: 100%;
+}
