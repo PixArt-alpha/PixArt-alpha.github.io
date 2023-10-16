@@ -157,3 +157,12 @@ section.banner {
 .column .card {
     height: 100%;
 }
+
+.pixart-alpha-icon::before {
+  background-image: url(../images/logo.svg);
+  background-size: 1em 1em;
+  display: inline-block;
+  width: 1em; 
+  height: 0.9em;
+  content:"";
+}
