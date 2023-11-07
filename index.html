@@ -42,6 +42,7 @@
     <script src="static/js/bulma-carousel.min.js"></script>
     <script src="static/js/index.js"></script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.1.1/gradio.js"></script>
 </head>
 
 <body>
@@ -258,8 +259,7 @@
         <div class="hero-body">
             <div class="container is-centered has-text-centered" style="height: 80vh">
                 <h2 class="title is-3">Online Demo</h2>
-                <iframe src="https://pixart-alpha-pixart-alpha.hf.space" frameborder="0" width="100%"
-                    height="100%"></iframe>
+                <gradio-app src="https://pixart-alpha-pixart-alpha.hf.space"></gradio-app>
             </div>
         </div>
     </section>
